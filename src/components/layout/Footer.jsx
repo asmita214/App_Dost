@@ -57,7 +57,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-dark-3 relative overflow-hidden">
-      {/* Background Pattern */}
+     
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-72 h-72 bg-primary-cyan rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-purple rounded-full blur-3xl"></div>
@@ -71,9 +71,9 @@ const Footer = () => {
           animate={isInViewport ? "visible" : "hidden"}
           className="py-16"
         >
-          {/* Main Footer Content */}
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {/* Company Info */}
+           
             <motion.div variants={itemVariants} className="space-y-6">
               <div className="flex items-center space-x-2">
                 <div className="w-10 h-10 bg-cyber-gradient rounded-lg flex items-center justify-center">
@@ -87,7 +87,7 @@ const Footer = () => {
                 Your trusted partner for comprehensive IT solutions. Transforming ideas into digital reality since 2025.
               </p>
               
-              {/* Social Links */}
+             
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -104,7 +104,7 @@ const Footer = () => {
               </div>
             </motion.div>
 
-            {/* Quick Links */}
+           
             <motion.div variants={itemVariants} className="space-y-4">
               <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
               <ul className="space-y-3">
@@ -123,7 +123,7 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            {/* Services */}
+            
             <motion.div variants={itemVariants} className="space-y-4">
               <h3 className="text-white font-bold text-lg mb-6">Our Services</h3>
               <ul className="space-y-3">
@@ -142,7 +142,7 @@ const Footer = () => {
               </ul>
             </motion.div>
 
-            {/* Contact Info */}
+           
             <motion.div variants={itemVariants} className="space-y-6">
               <h3 className="text-white font-bold text-lg mb-6">Get In Touch</h3>
               <div className="space-y-4">
@@ -173,7 +173,7 @@ const Footer = () => {
             </motion.div>
           </div>
 
-          {/* Bottom Bar */}
+          
           <motion.div
             variants={itemVariants}
             className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"

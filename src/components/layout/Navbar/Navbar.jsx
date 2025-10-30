@@ -8,25 +8,25 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Define all possible sections IN THE CORRECT ORDER they appear on the page
+
   const allSections = [
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
     { name: 'Services', href: '#services', id: 'services' },
-    { name: 'Process', href: '#process', id: 'process' }, // Process comes BEFORE Portfolio
-    { name: 'Portfolio', href: '#portfolio', id: 'portfolio' }, // Portfolio comes AFTER Process
+    { name: 'Process', href: '#process', id: 'process' }, 
+    { name: 'Portfolio', href: '#portfolio', id: 'portfolio' }, 
     { name: 'Contact', href: '#contact', id: 'contact' },
-    // Remove Careers and Blog since they don't exist
+    
   ];
 
-  // Check which sections actually exist on the page
+ 
   const [availableSections, setAvailableSections] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Find which section is currently in view
+      
       const sections = allSections.filter(section => {
         const element = document.getElementById(section.id);
         return element !== null;
@@ -34,7 +34,7 @@ const Navbar = () => {
 
       setAvailableSections(sections);
 
-      // Calculate which section is currently active
+      
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -47,7 +47,7 @@ const Navbar = () => {
       }
     };
 
-    // Initial check for available sections
+    
     const checkSections = () => {
       const sections = allSections.filter(section => {
         const element = document.getElementById(section.id);
@@ -59,7 +59,7 @@ const Navbar = () => {
     checkSections();
     window.addEventListener('scroll', handleScroll);
     
-    // Re-check sections after a delay to account for dynamic content
+    
     const timeoutId = setTimeout(checkSections, 1000);
 
     return () => {
@@ -72,7 +72,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
     setActiveSection(id);
     
-    // Smooth scroll to section
+   
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
@@ -110,7 +110,7 @@ const Navbar = () => {
               </span>
             </motion.div>
 
-            {/* Desktop Menu - Only shows available sections IN CORRECT ORDER */}
+            
             <div className="hidden md:flex items-center space-x-8">
               {availableSections.map((item, index) => (
                 <motion.a
@@ -132,14 +132,14 @@ const Navbar = () => {
                 >
                   {item.name}
                   
-                  {/* Active indicator */}
+                
                   <span 
                     className={`absolute -bottom-1 left-0 h-0.5 bg-cyber-gradient transition-all duration-300 ${
                       activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}
                   ></span>
                   
-                  {/* Active glow effect */}
+                 
                   {activeSection === item.id && (
                     <motion.span
                       className="absolute inset-0 bg-cyber-gradient rounded-lg blur-md opacity-20 -z-10"
@@ -156,7 +156,7 @@ const Navbar = () => {
               </MagneticButton>
             </div>
 
-            {/* Mobile Menu Button */}
+            
             <motion.button
               className="md:hidden text-white p-2"
               whileTap={{ scale: 0.9 }}
@@ -168,7 +168,7 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu - Only shows available sections IN CORRECT ORDER */}
+      
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -177,13 +177,13 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            {/* Backdrop */}
+           
             <div 
               className="absolute inset-0 bg-dark-1/80 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
-            {/* Menu Panel */}
+           
             <motion.div
               className="absolute top-0 right-0 h-full w-80 bg-dark-2/95 backdrop-blur-xl border-l border-white/10"
               initial={{ x: '100%' }}
